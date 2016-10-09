@@ -1,0 +1,33 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="server-status">
+	<style>
+		.row{
+			margin-top:20px;
+			margin-bottom:20px;
+		}
+	</style>
+	<template>
+		<div class="container col-md-6">
+			<div class="row">
+				<div class="col-md-10">
+					<h1 style="color:#5c6bc0">Servicio 1</h1>
+					<p>Monitoreo del clima de Bogotá</p>
+				</div>
+				<div class="col-md-2">
+					<p style="padding-top:35px;color:green;font-size:18pt">On</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h1 style="color:#999">Aquí va una gráfica que ocupa mucho espacio</h1>
+				</div>
+			</div>
+		</div>
+	</template>
+</dom-module>
+<script>
+	Polymer({
+		is: "server-status"
+	});
+</script>

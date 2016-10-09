@@ -1,0 +1,25 @@
+{
+  "name": "prueba-mesfix",
+  "homepage": "https://github.com/sbacarob/Mesfix",
+  "authors": [
+    "Santiago Bacaro <sbacarob@outlook.com>"
+  ],
+  "description": "Proyecto de prueba para Mesfix",
+  "main": "",
+  "keywords": [
+    "flask",
+    "polymer",
+    "Mesfix"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.7.0"
+  }
+}
