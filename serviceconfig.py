@@ -6,6 +6,8 @@ LINUX='Linux'
 # Constante para un servicio corriendo en nun servidor Heroku
 HEROKU='Heroku'
 
+# Diccionario en el que se declaran los servicios. 
+# Estos servicios serán utilizados para inicializar el monitoreo desde el servidor
 services={
 	'service_1':{
 		'tipo': HEROKU,
@@ -37,5 +39,8 @@ services={
 	}
 }
 
+"""
+	Método que devuelve el diccionario de servicios declarado anteriormente
+"""
 def get_services():
 	return services

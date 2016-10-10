@@ -1,5 +1,13 @@
+# coding=utf-8
+# Archivo que inicializa las variables globales para que se puedan acceder desde los templates
+
+# Se importa la librería requests para manejar peticiones GET
 from requests import get
 
+"""
+   Método que hace una petición inicial a los servicios y establece con los resultados las variables globales
+   para ser usadas en los templates
+"""
 def set_globals(app):
 	cl1= get('http://mt-ds1.herokuapp.com')
 	rdm= get('http://mt-ds2.herokuapp.com')
