@@ -1,3 +1,9 @@
+//En este archivo se incluyen métodos para manejar las gráficas. 
+//Incluyenddo métodos para establecer elementos de las gráficas y para actualizarlas
+
+/**
+**** Esta función se usa para inicializar las gráficas de canvasjs cuando el documento ya está listo
+**/
 $('Document').ready(function(){
 	chart= new CanvasJS.Chart("grafica1",{
 		title:{
@@ -44,6 +50,11 @@ $('Document').ready(function(){
 	});	
 });
 
+
+/**
+**** Función que actualiza periodicamente la información. Esta función es llamada cada minuto y hace una petición GET 
+**** a cada url para actualizar la interfaz.
+**/
 function updateData(){
 	var dt= new Date()
 	$.get('http://mt-ds1.herokuapp.com',function(data, statusText, xhr){
@@ -54,7 +65,7 @@ function updateData(){
 		}
 		else{
 			cl1=null;
-			$('#serv-status-1').html('Down <span class="fa fa-gear" style="cursor:pointer" id="fix-1"></span>')
+			$('#serv-status-1').html('Down <span class="fa fa-wrench" style="cursor:pointer" id="fix-1"></span>')
 			$('#serv-status-1').css('color','#e53935')		
 		}
 		chart.options.data[0].dataPoints.push({x:dt,y:cl1});
@@ -68,7 +79,7 @@ function updateData(){
 		}
 		else{
 			rdm=null;
-			$('#serv-status-2').html('Down <span class="fa fa-gear" style="cursor:pointer" id="fix-2"></span>')
+			$('#serv-status-2').html('Down <span class="fa fa-wrench" style="cursor:pointer" id="fix-2"></span>')
 			$('#serv-status-2').css('color','#e53935')		
 		}
 		chart2.options.data[0].dataPoints.push({x:dt,y:rdm});
@@ -82,7 +93,7 @@ function updateData(){
 		}
 		else{
 			cl2=null;
-			$('#serv-status-3').html('Down <span class="fa fa-gear" style="cursor:pointer" id="fix-3"></span>')
+			$('#serv-status-3').html('Down <span class="fa fa-wrench" style="cursor:pointer" id="fix-3"></span>')
 			$('#serv-status-3').css('color','#e53935')		
 		}
 		chart3.options.data[0].dataPoints.push({x:dt,y:cl2});
@@ -96,7 +107,7 @@ function updateData(){
 		}
 		else{
 			cl3=null;
-			$('#serv-status-4').html('Down <span class="fa fa-gear" style="cursor:pointer" id="fix-1"></span>')
+			$('#serv-status-4').html('Down <span class="fa fa-wrench" style="cursor:pointer" id="fix-1"></span>')
 			$('#serv-status-4').css('color','#e53935')		
 		}
 		chart4.options.data[0].dataPoints.push({x:dt,y:cl3});

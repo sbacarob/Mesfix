@@ -20,33 +20,83 @@
 			</div>
 		</div>
 		<div class="container">			
-			<server-status canv-id=1 description="Monitoreo del clima de Bogotá" state="On"></server-status>
-			<server-status canv-id=2 description="Números aleatorios" state="On"></server-status>
-			<server-status canv-id=3 description="Monitoreo del clima en Manizales" state="On"></server-status>
-			<server-status canv-id=4 description="Monitoreo del clima en Chigorodó" state="On"></server-status>			
+			<server-status canv-id=1 description="Monitoreo del clima de Bogotá" state="{{st_1}}"></server-status>
+			<server-status canv-id=2 description="Números aleatorios" state="{{st_2}}"></server-status>
+			<server-status canv-id=3 description="Monitoreo del clima en Manizales" state="{{st_3}}"></server-status>
+			<server-status canv-id=4 description="Monitoreo del clima en Chigorodó" state="{{st_4}}"></server-status>			
 		</div>	
 
 		<script src="{{url_for('static',filename='js/chartm.js')}}"></script>
 		<script>
+			//Este script se utiliza para cargar la información de los servicios para las gráficas inicialmente
+			// También se inicia el método que se llama cada minuto para actualizar la información
+
+			/**
+			**** Aquí se llama la función de abajo y se inicializa el método que actualiza la interfaz
+			**/
 			$('Document').ready(function(){
 				loadData();
 				setInterval(updateData,60000);
 			});			
 
+			/**
+			**** Método que carga algunos elementos para el estado inicial de la página y las gráficas
+			**/
 			function loadData(){
 				console.log("se entró en la función de cargardatos")
 				var dt= new Date()
+
+				if({{cl1}}===null){
+					cl1=null
+				}
 				chart.options.data[0].dataPoints.push({x:dt,y:{{cl1}}});
 				chart.render();
+				if({{st_1}}==0){					
+					$('#serv-status-1').html('Down <span class="fa fa-wrench" style="cursor:pointer" id="fix-1"></span>')
+					$('#serv-status-1').css('color','#e53935')		
+				}
+				else{
+					$('#serv-status-1').html('On')
+				}
 
+				if({{rdm}}===null){
+					rdm=null
+				}
 				chart2.options.data[0].dataPoints.push({x:dt,y:{{rdm}}});
 				chart2.render();
+				if({{st_2}}==0){					
+					$('#serv-status-2').html('Down <span class="fa fa-wrench" style="cursor:pointer" id="fix-2"></span>')
+					$('#serv-status-2').css('color','#e53935')		
+				}
+				else{
+					$('#serv-status-2').html('On')
+				}
 
+				if({{cl2}}===null){
+					cl2=null
+				}
 				chart3.options.data[0].dataPoints.push({x:dt,y:{{cl2}}});
 				chart3.render();
+				if({{st_3}}==0){					
+					$('#serv-status-3').html('Down <span class="fa fa-wrench" style="cursor:pointer" id="fix-3"></span>')
+					$('#serv-status-3').css('color','#e53935')		
+				}
+				else{
+					$('#serv-status-3').html('On')
+				}
 
+				if({{cl3}}==="null"){
+					cl3=null
+				}
 				chart4.options.data[0].dataPoints.push({x:dt,y:{{cl3}}});
 				chart4.render();
+				if({{st_4}}=='Down'){					
+					$('#serv-status-4').html('Down <span class="fa fa-wrench" style="cursor:pointer" id="fix-4"></span>')
+					$('#serv-status-4').css('color','#e53935')		
+				}
+				else{
+					$('#serv-status-4').html('On')
+				}
 			}
 		</script>	
 	</body>

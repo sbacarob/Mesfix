@@ -11,24 +11,28 @@ services={
 		'tipo': HEROKU,
 		'url':'http://mt-ds1.herokuapp.com',
 		'user':'sbacarob@outlook.com',
+		'ip':'174.129.199.201',
 		'pass':''
 	},
 	'service_2':{
 		'tipo': HEROKU,
-		'url':'http://mt-ds1.herokuapp.com',
+		'url':'http://mt-ds2.herokuapp.com',
 		'user':'sbacarob@outlook.com',
+		'ip':'54.235.116.11',
 		'pass':''
 	},
 	'service_3':{
 		'tipo': HEROKU,
-		'url':'http://mt-ds1.herokuapp.com',
+		'url':'http://mt-ds3.herokuapp.com',
 		'user':'sbacarob@outlook.com',
+		'ip':'54.235.116.11',
 		'pass':''
 	},
 	'service_4':{
 		'tipo': HEROKU,
-		'url':'http://mt-ds1.herokuapp.com',
+		'url':'http://mt-ds4.herokuapp.com',
 		'user':'sbacarob@outlook.com',
+		'ip':'54.235.116.11',
 		'pass':''
 	}
 }
