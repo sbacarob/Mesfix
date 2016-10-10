@@ -15,7 +15,7 @@
 					<p>{{description}}</p>
 				</div>
 				<div class="col-md-2">
-					<p style="padding-top:35px;color:green;font-size:18pt">On</p>
+					<p id='serv-status-[[canvId]]' style="padding-top:35px;color:green;font-size:18pt">{{state}}</p>
 				</div>
 			</div>
 			<div class="row">
@@ -34,7 +34,8 @@
 
 		properties: {
 			canvId: String,
-			description: String
+			description: String,
+			state: String
 		}
 	});
 </script>
