@@ -29,6 +29,12 @@
 		<script src="{{url_for('static',filename='js/chartm.js')}}"></script>
 		<script>
 			$('Document').ready(function(){
+				loadData();
+				setInterval(updateData,60000);
+			});			
+
+			function loadData(){
+				console.log("se entró en la función de cargardatos")
 				var dt= new Date()
 				chart.options.data[0].dataPoints.push({x:dt,y:{{cl1}}});
 				chart.render();
@@ -41,7 +47,7 @@
 
 				chart4.options.data[0].dataPoints.push({x:dt,y:{{cl3}}});
 				chart4.render();
-			})			
-		</script>
+			}
+		</script>	
 	</body>
 </html>
