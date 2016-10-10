@@ -1,12 +1,8 @@
 from flask import Flask, render_template
-from requests import get
+import globals
 
 app= Flask(__name__)
-
-app.jinja_env.globals.update(get=get)
-
-cl3= get('http://mt-ds4.herokuapp.com').content
-app.jinja_env.globals.update(cl3=cl3)
+globals.set_globals(app)
 
 @app.route('/')
 def homepage():
