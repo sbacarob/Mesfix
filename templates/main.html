@@ -10,14 +10,75 @@
 		<lihk href="{{url_for('static', filename='bower_components/webcomponents/webcomponents.js')}}">
 		<link rel="stylesheet" href="{{url_for('static', filename='css/stylesheet.css')}}">
 		<link rel="import" href="{{url_for('static',filename='polymer-templates/server-status.html')}}">
+		<script src="{{url_for('static',filename='js/jquery.canvasjs.min.js')}}"></script>
 	</head>
 	<body>
 		<div class="container">
 			<h1>Monitor de servicios para Mesfix</h1>
-			<server-status></server-status>
-			<server-status></server-status>
-			<server-status></server-status>
-			<server-status></server-status>			
+			<server-status canv-id=1 description="Monitoreo del clima de Bogotá"></server-status>
+			<server-status canv-id=2 description="Números aleatorios"></server-status>
+			<server-status canv-id=3 description="Monitoreo del clima en Manizales"></server-status>
+			<server-status canv-id=4 description="Monitoreo del clima en Chigorodó"></server-status>			
 		</div>	
+
+		<script>
+			$('Document').ready(function(){
+				var dt= new Date();
+				var chart= new CanvasJS.Chart("grafica1",{
+					title:{
+						text:"Clima en Bogotá"
+					},
+					data:[
+					{
+						type:"spline",
+						dataPoints: [
+							{x:dt,y:{{get('http://mt-ds1.herokuapp.com').content}}}
+						]
+					}]
+				});
+				chart.render();
+
+				var chart2= new CanvasJS.Chart("grafica2",{
+					title:{
+						text:"Números aleatorios"
+					},
+					data:[{
+						type:"spline",
+						dataPoints:[
+							{x:dt,y:{{get('http://mt-ds2.herokuapp.com').content}}}
+						]
+					}]
+				});
+				chart2.render();
+
+				var chart3= new CanvasJS.Chart("grafica3",{
+					title:{
+						text:"Clima en Manizales"
+					},
+					data:[
+					{
+						type:"spline",
+						dataPoints:[
+							{x:dt,y:{{get('http://mt-ds3.herokuapp.com').content}}}
+						]
+					}]
+				});
+				chart3.render();
+
+				var chart4= new CanvasJS.Chart("grafica4",{
+					title:{
+						text:"Clima en Chigorodó"
+					},
+					data:[
+					{
+						type:"spline",
+						dataPoints:[
+							{x:dt,y:{{cl3}}}
+						]
+					}]
+				});
+				chart4.render()
+			})
+		</script>
 	</body>
 </html>
