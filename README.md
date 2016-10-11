@@ -37,6 +37,11 @@ services={
 	}
 }
 ```
+
+### Actualización de la interfaz
+
+Para la actualización de la interfaz cuando se corre la aplicación localmente es necesario habilitar el intercambio de recursos entre orígenes. Una manera de lograr esto en Chrome es con la extensión Allow-control-allow-origin, disponible [Aquí](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?utm_source=chrome-ntp-icon)
+
 ### Capturas de pantalla
 
 Aquí se muestra un ejemplo con tres servicios funcionales y uno caído:
