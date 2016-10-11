@@ -1,31 +1,30 @@
 # coding=utf-8
 
+user='root'
+passwd='!prueba-mesfix-12345'
+
 # Diccionario en el que se declaran los servicios. 
 # Estos servicios serán utilizados para inicializar el monitoreo desde el servidor
 services={
 	'service_1':{
-		'url':'http://mt-ds1.herokuapp.com',
-		'user':'sbacarob@outlook.com',
-		'ip':'174.129.199.201',
-		'pass':''
+		'host':'http://104.131.16.36',
+		'user':user,
+		'pass':passwd
 	},
 	'service_2':{
-		'url':'http://mt-ds2.herokuapp.com',
-		'user':'sbacarob@outlook.com',
-		'ip':'54.235.116.11',
-		'pass':''
+		'host':'http://104.131.59.50',
+		'user':user,
+		'pass':passwd
 	},
 	'service_3':{
-		'url':'http://mt-ds3.herokuapp.com',
-		'user':'sbacarob@outlook.com',
-		'ip':'54.235.116.11',
-		'pass':''
+		'host':'http://104.131.90.195',
+		'user':user,
+		'pass':passwd
 	},
 	'service_4':{
-		'url':'http://mt-ds4.herokuapp.com',
-		'user':'sbacarob@outlook.com',
-		'ip':'54.235.116.11',
-		'pass':''
+		'host':'http://104.131.93.15',
+		'user':user,
+		'pass':passwd
 	}
 }
 

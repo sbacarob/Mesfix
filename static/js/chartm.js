@@ -57,7 +57,7 @@ $('Document').ready(function(){
 **/
 function updateData(){
 	var dt= new Date()
-	$.get('http://mt-ds1.herokuapp.com',function(data, statusText, xhr){
+	$.get('http://104.131.16.36',function(data, statusText, xhr){
 		if(xhr.status==200){
 			cl1=parseFloat(data);	
 			$('#serv-status-1').html('On')
@@ -71,7 +71,7 @@ function updateData(){
 		chart.options.data[0].dataPoints.push({x:dt,y:cl1});
 		chart.render();
 	});
-	$.get('http://mt-ds2.herokuapp.com',function(data, statusText, xhr){
+	$.get('http://104.131.59.50',function(data, statusText, xhr){
 		if(xhr.status==200){
 			rdm=parseInt(data);			
 			$('#serv-status-2').html('On')
@@ -85,7 +85,7 @@ function updateData(){
 		chart2.options.data[0].dataPoints.push({x:dt,y:rdm});
 		chart2.render();
 	});
-	$.get('http://mt-ds3.herokuapp.com',function(data, statusText, xhr){
+	$.get('http://104.131.90.195',function(data, statusText, xhr){
 		if(xhr.status==200){
 			cl2=parseFloat(data);			
 			$('#serv-status-3').html('On')
@@ -99,7 +99,7 @@ function updateData(){
 		chart3.options.data[0].dataPoints.push({x:dt,y:cl2});
 		chart3.render();
 	});
-	$.get('http://mt-ds4.herokuapp.com',function(data, statusText, xhr){
+	$.get('http://104.131.93.15',function(data, statusText, xhr){
 		if(xhr.status==200){
 			cl3=parseFloat(data);		
 			$('#serv-status-4').html('On')

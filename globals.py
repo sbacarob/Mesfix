@@ -9,10 +9,10 @@ from requests import get
    para ser usadas en los templates
 """
 def set_globals(app):
-	cl1= get('http://mt-ds1.herokuapp.com')
-	rdm= get('http://mt-ds2.herokuapp.com')
-	cl2= get('http://mt-ds3.herokuapp.com')
-	cl3= get('http://mt-ds4.herokuapp.com')
+	cl1= get('http://104.131.16.36')
+	rdm= get('http://104.131.59.50')
+	cl2= get('http://104.131.90.195')
+	cl3= get('http://104.131.93.15')
 
 	if cl1.status_code==200:
 		app.jinja_env.globals.update(cl1=cl1.content)
