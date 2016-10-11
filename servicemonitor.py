@@ -48,16 +48,14 @@ def run_monitor():
 """
 	Método que se encarga de reiniciar un servicio dada su llave dentro del diccionario de servicios.
 	El parámetro key es la llave.
-	El método obtiene el tipo de servidor en el que corre el servicio del diccionario de servicios y lo reinicia dependiendo
-	de si es un servidor Linux o un servidor en Heroku
+	El método reinicia el servidor en el que corre el servicio 
 """
 def restart_service(key):
 	print "Intentando reiniciar el servicio"
-	if services[key]['tipo']==serviceconfig.LINUX:
-		ssh= paramiko.SSHClient()
-		ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-		ssh.connect(services[key]['ip'],username=services[key]['user'],password=services[key]['pass'])
-		stdin, stdout, stderr = ssh.exec_command("sudo reboot")
-		stdin.write(services[key]['pass']+'\n')
-		stdin.flush()
-		ssh.close()
+	ssh= paramiko.SSHClient()
+	ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+	ssh.connect(services[key]['ip'],username=services[key]['user'],password=services[key]['pass'])
+	stdin, stdout, stderr = ssh.exec_command("sudo reboot")
+	stdin.write(services[key]['pass']+'\n')
+	stdin.flush()
+	ssh.close()
