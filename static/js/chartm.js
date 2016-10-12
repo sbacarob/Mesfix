@@ -4,10 +4,10 @@
 /**
 **** Esta función se usa para inicializar las gráficas de canvasjs cuando el documento ya está listo
 **/
-$('Document').ready(function(){
+function createCharts(){
 	chart= new CanvasJS.Chart("grafica1",{
 		title:{
-			text:"Clima en Bogotá",
+			text:url_1.slice(7),
 			fontColor:"#7986cb"
 		},
 		data:[
@@ -18,7 +18,7 @@ $('Document').ready(function(){
 	});
 		chart2= new CanvasJS.Chart("grafica2",{
 		title:{
-			text:"Números aleatorios",
+			text:url_2.slice(7),
 			fontColor:"#7986cb"
 		},
 		data:[{
@@ -28,7 +28,7 @@ $('Document').ready(function(){
 	});
 		chart3= new CanvasJS.Chart("grafica3",{
 		title:{
-			text:"Clima en Manizales",
+			text:url_3.slice(7),
 			fontColor:"#7986cb"
 		},
 		data:[
@@ -39,7 +39,7 @@ $('Document').ready(function(){
 	});
 		chart4= new CanvasJS.Chart("grafica4",{
 		title:{
-			text:"Clima en Chigorodó",
+			text:url_4.slice(7),
 			fontColor:"#7986cb"
 		},
 		data:[
@@ -48,7 +48,7 @@ $('Document').ready(function(){
 			dataPoints:[]
 		}]
 	});	
-});
+}
 
 
 /**
@@ -57,7 +57,7 @@ $('Document').ready(function(){
 **/
 function updateData(){
 	var dt= new Date()
-	$.get('http://104.131.16.36',function(data, statusText, xhr){
+	$.get(url_1,function(data, statusText, xhr){
 		if(xhr.status==200){
 			cl1=parseFloat(data);	
 			$('#serv-status-1').html('On')
@@ -71,7 +71,7 @@ function updateData(){
 		chart.options.data[0].dataPoints.push({x:dt,y:cl1});
 		chart.render();
 	});
-	$.get('http://104.131.59.50',function(data, statusText, xhr){
+	$.get(url_2,function(data, statusText, xhr){
 		if(xhr.status==200){
 			rdm=parseInt(data);			
 			$('#serv-status-2').html('On')
@@ -85,7 +85,7 @@ function updateData(){
 		chart2.options.data[0].dataPoints.push({x:dt,y:rdm});
 		chart2.render();
 	});
-	$.get('http://104.131.90.195',function(data, statusText, xhr){
+	$.get(url_3,function(data, statusText, xhr){
 		if(xhr.status==200){
 			cl2=parseFloat(data);			
 			$('#serv-status-3').html('On')
@@ -99,7 +99,7 @@ function updateData(){
 		chart3.options.data[0].dataPoints.push({x:dt,y:cl2});
 		chart3.render();
 	});
-	$.get('http://104.131.93.15',function(data, statusText, xhr){
+	$.get(url_4,function(data, statusText, xhr){
 		if(xhr.status==200){
 			cl3=parseFloat(data);		
 			$('#serv-status-4').html('On')

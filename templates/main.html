@@ -24,23 +24,28 @@
 			Tienen los atributos canv-id para la identificación dentro del documento y creación de gráficas;
 			description para dar una descripción a mostrar en la gráfica; y state para determinar el estado 
 			del servidor, representado con las palabras 'On' o 'Down'-->
-			<server-status canv-id=1 description="Monitoreo del clima de Bogotá" state="{{st_1}}"></server-status>
-			<server-status canv-id=2 description="Números aleatorios" state="{{st_2}}"></server-status>
-			<server-status canv-id=3 description="Monitoreo del clima en Manizales" state="{{st_3}}"></server-status>
-			<server-status canv-id=4 description="Monitoreo del clima en Chigorodó" state="{{st_4}}"></server-status>			
+			<server-status canv-id=1 description="{{desc_1}}" state="{{st_1}}"></server-status>
+			<server-status canv-id=2 description="{{desc_2}}" state="{{st_2}}"></server-status>
+			<server-status canv-id=3 description="{{desc_3}}" state="{{st_3}}"></server-status>
+			<server-status canv-id=4 description="{{desc_4}}" state="{{st_4}}"></server-status>			
 		</div>	
 
 		<script src="{{url_for('static',filename='js/chartm.js')}}"></script>
 		<script>
 			//Este script se utiliza para cargar la información de los servicios para las gráficas inicialmente
 			// También se inicia el método que se llama cada minuto para actualizar la información
-
+			
 			/**
 			**** Aquí se llama la función de abajo y se inicializa el método que actualiza la interfaz
 			**/
 			$('Document').ready(function(){
+				url_1= "{{url_1}}";
+				url_2= "{{url_2}}";
+				url_3= "{{url_3}}";
+				url_4= "{{url_4}}";
+				createCharts();
 				loadData();
-				setInterval(updateData,60000);
+				setInterval(updateData,60000);				
 			});			
 
 			/**
