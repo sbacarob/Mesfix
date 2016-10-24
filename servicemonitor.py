@@ -12,6 +12,8 @@ from threading import Timer
 """ Diccionario que almacena los servicios"""
 services={}
 
+rtt=[]
+
 """
 	Método que carga los servicios del archivo de configuración de servicios.
 	Inicializa el diccionario de servicios con los cargados
@@ -32,6 +34,11 @@ def check_service(host,number,key):
 		restart_service(key)
 	else:
 		print "El servicio %s está funcionando correctamente" %(number)
+		if len(rtt)<number:
+			rtt.append(req.elapsed.total_seconds())
+		else:
+			rtt[number-1]=req.elapsed.total_seconds()
+
 
 """
 	Método que inicia el monitoreo. Tiene un temporizador que es llamado para correr nuevamente el método.
@@ -59,3 +66,9 @@ def restart_service(key):
 	stdin.write(services[key]['pass']+'\n')
 	stdin.flush()
 	ssh.close()
+
+def get_rt(ind):
+	return str(rtt[ind])
+
+def get_rtt():
+	return rtt

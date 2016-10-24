@@ -73,7 +73,7 @@ function updateData(){
 	});
 	$.get(url_2,function(data, statusText, xhr){
 		if(xhr.status==200){
-			rdm=parseInt(data);			
+			rdm=parseFloat(data);			
 			$('#serv-status-2').html('On')
 			$('#serv-status-2').css('color','green')		
 		}

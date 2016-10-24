@@ -5,6 +5,8 @@
 from requests import get
 import serviceconfig
 
+global rt1, rt2, rt3, rt4, rtt
+
 """
    Método que hace una petición inicial a los servicios y establece con los resultados las variables globales
    para ser usadas en los templates
@@ -33,29 +35,40 @@ def set_globals(app):
 	app.jinja_env.globals.update(desc_4=unicode(services['service_4']['description'],'utf-8'))
 
 	if cl1.status_code==200:
-		app.jinja_env.globals.update(cl1=cl1.content)
-		app.jinja_env.globals.update(st_1=1)
+		global rt1
+		rt1= str(cl1.elapsed.total_seconds())
+		app.jinja_env.globals.update(cl1=str(rt1))
+		app.jinja_env.globals.update(st_1=1)		
+		print "rt1= " + rt1
 	else:
 		app.jinja_env.globals.update(cl1="null")
 		app.jinja_env.globals.update(st_1=0)
 
 	if rdm.status_code==200:
-		app.jinja_env.globals.update(rdm=rdm.content)
+		global rt2
+		rt2= str(rdm.elapsed.total_seconds())
+		app.jinja_env.globals.update(rdm=str(rt2))
 		app.jinja_env.globals.update(st_2=1)
 	else:
 		app.jinja_env.globals.update(cl1="'null'")
 		app.jinja_env.globals.update(st_2=0)
 
 	if cl2.status_code==200:
-		app.jinja_env.globals.update(cl2=cl2.content)
+		global rt3
+		rt3= str(cl2.elapsed.total_seconds())
+		app.jinja_env.globals.update(cl2=str(rt3))
 		app.jinja_env.globals.update(st_3=1)
 	else:
 		app.jinja_env.globals.update(cl1="'null'")
 		app.jinja_env.globals.update(st_3=0)
 
 	if cl3.status_code==200:
-		app.jinja_env.globals.update(cl3=cl3.content)
+		global rt4
+		rt4= str(cl3.elapsed.total_seconds())
+		app.jinja_env.globals.update(cl3=str(rt4))
 		app.jinja_env.globals.update(st_4=1)
 	else:
 		app.jinja_env.globals.update(cl1="'null'")
 		app.jinja_env.globals.update(st_4=0)
+	global rtt
+	rtt=[rt1,rt2,rt3,rt4]
